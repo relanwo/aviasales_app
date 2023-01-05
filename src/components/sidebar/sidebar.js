@@ -1,68 +1,63 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
-
+import { useSelector, useDispatch } from 'react-redux';
 import './sidebar.scss';
 // import styles from './sidebar.module.scss';
-
+// import { onChange, onCheckAllChange } from '.../store/sidebarSlice'
 import { Checkbox } from 'antd';
+import store from '../../store';
 const CheckboxGroup = Checkbox.Group;
 
-export default function Sidebar() {
-  // // eslint-disable-next-line no-unused-vars
-  // const [indeterminate, setIndeterminate] = useState(true);
+const values = [
+	// 'Все',
+	'Без пересадок',
+	'1 пересадка',
+	'2 пересадки',
+	'3 пересадки',
+];
+const defaultValue = 'Все';
 
-	const options = [
-		'Все',
-		'Без пересадок',
-		'1 пересадка',
-		'2 пересадки',
-		'3 пересадки',
-	];
+const Sidebar = () => {
+  // const dispatch = useDispatch()
+  // const onChange = () => dispatch(onChange())
+  // const onCheckAllChange = () => dispatch(onCheckAllChange())
+  // const checkedList = useSelector(state => state.sidebar.checkedList)
+  // const checkAll = useSelector(state => state.sidebar.checkAll)
+	const [checkedList, setCheckedList] = useState(defaultValue); // массив выбранных значений
+	const [checkAll, setCheckAll] = useState(true); // true/false если все пункты выбраны то "Все"
 
-  // const elements = options.map((opt) => {
-  //   return (
-  //     <Checkbox
-	// 			// indeterminate={indeterminate}
-	// 			// onChange={onCheckAllChange}
-	// 			// checked={checkAll}
-	// 		>
-	// 			{opt}
-	// 		</Checkbox>
-  //   )
-  // })
+	const onChange = (e) => {
+    const list = e
+    // console.log(list)
+		setCheckedList(list);
+		setCheckAll(list.length === values.length);
+	};
+
+	const onCheckAllChange = (e) => {
+    // console.log(e.target)
+		setCheckedList(e.target.checked ? values : []);
+    // console.log(checkedList)
+		setCheckAll(e.target.checked);
+    // console.log(checkAll)
+	};
+
 	return (
 		<aside className="sidebar">
       <title className="sidebar__title">Количество пересадок</title>
-      {/* {elements} */}
-			{/* <Checkbox
-				// indeterminate={indeterminate}
-				// onChange={onCheckAllChange}
-				// checked={checkAll}
+			<Checkbox
+        options={defaultValue}
+				onChange={onCheckAllChange}
+				checked={checkAll}
 			>
-				Все
-			</Checkbox> */}
-			{/* <Checkbox
-				options={options}
-				// value={checkedList}
-				// onChange={onChange}
-			/> */}
-      <CheckboxGroup
-				options={options}
-				// value={checkedList}
-				// onChange={onChange}
+				{defaultValue}
+			</Checkbox>
+			<CheckboxGroup
+				options={values}
+				value={checkedList}
+				onChange={onChange}
 			/>
 		</aside>
 	);
-	// return (
-	// 	<aside className='aside'>
-	// 		<title className='aside__title'>Количество пересадок</title>
-	// 		<div className='aside__wrapper'>
-	// 			{/* <input type="checkbox">Все</input>
-	// 			<input type="checkbox">Без пересадок</input>
-	// 			<input type="checkbox">1 пересадка</input>
-	// 			<input type="checkbox">2 пересадки</input>
-	// 			<input type="checkbox">3 пересадки</input> */}
-	// 		</div>
-	// 	</aside>
-	// );
-}
+};
+
+export default Sidebar;

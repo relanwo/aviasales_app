@@ -11,6 +11,7 @@
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 20px;
+  height: min-content;
 }
 
 .sidebar__title {
@@ -30,12 +31,13 @@
   color: #4A4A4A;
 }
 
-.ant-checkbox-wrapper:first-child {
-  margin-left: 8px;
-}
+// .ant-checkbox-wrapper:first-child {
+//   margin-left: 8px;
+// }
 
 .ant-checkbox-wrapper {
-  padding: 10px 0 ;
+  padding: 10px 0;
+  margin-left: 0 !important;
 
   font-style: normal;
   font-weight: 400;
