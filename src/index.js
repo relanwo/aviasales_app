@@ -12,9 +12,14 @@ import React from 'react';
 import ReactDom from 'react-dom/client';
 // eslint-disable-next-line no-unused-vars
 import { createStore } from 'redux';
+import { rootReducer } from './redux/rootReducer';
 // eslint-disable-next-line no-unused-vars
 import { Provider } from 'react-redux';
-import store from './store'
+// import store from './store'
+// eslint-disable-next-line no-unused-vars
+import { configureStore } from "@reduxjs/toolkit";
+// import sidebarSlice from "./store/sidebarSlice";
+// import filterSlide from "./store/filterSlice";
 
 import App from './components/app/app';
 
@@ -45,6 +50,13 @@ import App from './components/app/app';
 //   // </Provider>,
 //   document.getElementById('app')
 // );
+// const store = configureStore({
+//   reducer: {
+//     // sidebar: sidebarSlice,
+//     // filter: filterSlide
+//   },
+// });
+const store = createStore(rootReducer)
 
 const container = document.getElementById('app');
 const root = ReactDom.createRoot(container);

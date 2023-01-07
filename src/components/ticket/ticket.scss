@@ -1,3 +1,7 @@
+.ant-card-body {
+  padding: 20px !important;
+}
+
 .ticket.ant-card {
   height: 185px;
   background: #FFFFFF;
@@ -24,6 +28,7 @@
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
+  line-height: 24px;
   /* identical to box height, or 100% */
 
   // display: flex;

@@ -1,60 +1,56 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { onCheck, onCheckAll } from '../../redux/actions';
 import './sidebar.scss';
-// import styles from './sidebar.module.scss';
-// import { onChange, onCheckAllChange } from '.../store/sidebarSlice'
 import { Checkbox } from 'antd';
-import store from '../../store';
+
 const CheckboxGroup = Checkbox.Group;
 
-const values = [
-	// 'Все',
-	'Без пересадок',
-	'1 пересадка',
-	'2 пересадки',
-	'3 пересадки',
-];
 const defaultValue = 'Все';
 
-const Sidebar = () => {
-  // const dispatch = useDispatch()
-  // const onChange = () => dispatch(onChange())
-  // const onCheckAllChange = () => dispatch(onCheckAllChange())
-  // const checkedList = useSelector(state => state.sidebar.checkedList)
-  // const checkAll = useSelector(state => state.sidebar.checkAll)
-	const [checkedList, setCheckedList] = useState(defaultValue); // массив выбранных значений
-	const [checkAll, setCheckAll] = useState(true); // true/false если все пункты выбраны то "Все"
+const Sidebar = (props) => {
+	// console.log('sidebar props >', props); //undefined, потому что надо доставать через useSelector
 
-	const onChange = (e) => {
-    const list = e
-    // console.log(list)
-		setCheckedList(list);
-		setCheckAll(list.length === values.length);
-	};
+	const checkAll = useSelector((state) => {
+		const { sidebarReducer } = state;
+		return sidebarReducer.checkAll
+	});
+	// console.log('checkAll >>>', checkAll);
 
-	const onCheckAllChange = (e) => {
-    // console.log(e.target)
-		setCheckedList(e.target.checked ? values : []);
-    // console.log(checkedList)
-		setCheckAll(e.target.checked);
-    // console.log(checkAll)
-	};
+	const checkedList = useSelector((state) => {
+	  const { sidebarReducer } = state;
+		return sidebarReducer.checkedList
+	});
+	// console.log('checkedList >>>', checkedList);
+
+  const values = useSelector((state) => {
+	  const { sidebarReducer } = state;
+		return sidebarReducer.values
+	});
+	// console.log('checkedList >>>', checkedList);
+
+	const dispatch = useDispatch();
+
+	const onCheckAllChange = (e) => dispatch(onCheckAll(e.target.checked));
+
+	const onCheckChange = (e) => dispatch(onCheck(e));
 
 	return (
 		<aside className="sidebar">
-      <title className="sidebar__title">Количество пересадок</title>
+			<label className="sidebar__title">Количество пересадок</label>
 			<Checkbox
-        options={defaultValue}
-				onChange={onCheckAllChange}
+				options={defaultValue}
 				checked={checkAll}
+				onChange={onCheckAllChange}
+				// onChange={(e) => dispatch(onCheckAllChange(e))}
 			>
 				{defaultValue}
 			</Checkbox>
 			<CheckboxGroup
 				options={values}
 				value={checkedList}
-				onChange={onChange}
+				onChange={onCheckChange}
+				// onChange={(e) => dispatch(onChange(e))}
 			/>
 		</aside>
 	);

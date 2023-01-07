@@ -26,6 +26,6 @@ const sidebarSlice = createSlice({
   },
 });
 
-export const { onChange, onCheckAllChange } = sidebarSlice.actions
+export const { onChange, onCheckAllChange } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;

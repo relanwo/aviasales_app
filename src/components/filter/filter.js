@@ -1,42 +1,42 @@
+/* eslint-disable no-unused-vars */
 import './filter.scss';
-// import './filter.module.scss';
 
 import { Radio } from 'antd';
-// import { useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
+import { toggleFilter } from '../../redux/actions'
 
+function Filter(props) {
 
-export default function Filter() {
-  // const dispatch = useDispatch()
-  // const cash = useSelector(state => state.cash)
-	// console.log(cash);
-
-  return (<Radio.Group defaultValue="cheap" buttonStyle="solid">
-    <Radio.Button value="cheap">Самый дешевый</Radio.Button>
-    <Radio.Button value="fast">Самый быстрый</Radio.Button>
+  return (<Radio.Group defaultValue={props.filterState} buttonStyle="solid" 
+  onChange={props.changeFilterState}
+  // onChange={() => dispatch(changeFilterState())}>
+  >
+    <Radio.Button 
+      value="cheap" 
+    >Самый дешевый</Radio.Button>
+    <Radio.Button 
+      value="fast"
+    >Самый быстрый</Radio.Button>
   </Radio.Group>)
-	// const buttons = [
-	// 	{ name: 'cheap', label: 'Самый дешевый' },
-	// 	{ name: 'fast', label: 'Самый быстрый' },
-	// ];
-
-	// const filterButtons = buttons.map(({ name, label, idx }) => {
-	// 	// const isActive = filter === name;
-	// 	// const filterClass = isActive ? 'selected' : '';
-	// 	return (
-	// 		<div
-	// 			key={name}
-	// 			className="radio-wrapper"
-	// 			// onClick={() => onFilterChange(name)}
-	// 		>
-	// 			<input
-	// 				id={idx}
-	// 				type="radio"
-	// 				// className={filterClass}
-	// 			/>
-	// 			<label htmlFor={idx}>{label}</label>
-	// 		</div>
-	// 	);
-	// });
-
-	// return <div className="filters">{filterButtons}</div>;
 }
+
+function mapStateToProps(state) {
+  // console.log('mapStateToProps >', state)
+  const {filterReducer} = state
+  return {
+    filterState: filterReducer.filterState
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    changeFilterState: () => {
+      // console.log('click')
+
+      // const action = { type: 'TOGGLE_FILTER' }
+      return dispatch(toggleFilter())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);
