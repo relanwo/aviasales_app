@@ -1,7 +1,7 @@
 import { TOGGLE_FILTER } from './types';
 
 const initialState = {
-	filterState: 'fast',
+	filterState: 'cheap',
 };
 
 export const filterReducer = (state = initialState, action) => {

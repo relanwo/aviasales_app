@@ -16,7 +16,7 @@ function App() {
 				<img
 					className="header__logo"
 					alt="logo"
-					src="../../imgs/Logo.png"
+					src='../../imgs/Logo.png'
 				></img>
 			</header>
 			<section
