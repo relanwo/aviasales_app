@@ -13,6 +13,7 @@ import {
 export function toggleFilter() {
 	return {
 		type: TOGGLE_FILTER,
+    // data
 	};
 }
 
@@ -52,21 +53,27 @@ export function errorOff() {
 	};
 }
 
-const getSearchId = async () => {
+// let searchId;
+
+export const getSearchId = async () => {
 	const responseId = await fetch(
 		'https://aviasales-test-api.kata.academy/search'
 	);
 	// if (!responseId.success) throw new Error('Failed to get ID');
 	const data = await responseId.json();
-	// console.log(data.searchId)
-	return data.searchId;
+	// console.log('data >>>>>>>>>>>>>',data)
+	// return data.searchId;
+  const searchId = data['searchId']
+  return searchId
 };
-export function ticketsLoad() {
+
+export const ticketsLoad = () => {
 	// console.log('getSearchId >>>>', getSearchId())
+  // const searchId =  getSearchId();
 	return async (dispatch) => {
-		try {
-			dispatch(loaderOn());
-			const searchId = await getSearchId();
+    try {
+      dispatch(loaderOn());
+      const searchId = await getSearchId();
 			// console.log('res >', res)
 			const response = await fetch(
 				`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId}`

@@ -5,7 +5,7 @@ import { Button, Alert, Spin } from 'antd';
 import Ticket from '../ticket/ticket';
 import uniqid from 'uniqid';
 import { useEffect, useState } from 'react';
-import { ticketsLoad, changeVisible, toggleFilter } from '../../redux/actions';
+import { getSearchId, ticketsLoad, changeVisible, toggleFilter } from '../../redux/actions';
 // import {fetchSearchId, fetchTicketsLoad} from '../../redux/api-actions'
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -17,20 +17,22 @@ export default function TicketList() {
 	const visible = useSelector((state) => state.ticketsReducer.visible);
 	const error = useSelector((state) => state.ticketsReducer.error);
 
-	const filter = useSelector((state) => state.filterReducer.filter);
-	// console.log('error >>>>>', error);
+	const filter = useSelector((state) => state.filterReducer.filterState);
+	console.log('filter >>>>>', filter);
 
 	useEffect(() => {
+    // dispatch(getSearchId())
 		dispatch(ticketsLoad());
     // dispatch(fetchSearchId());
     // dispatch(fetchTicketsLoad());
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [filter]);
 
   // useEffect(() => {
-	// 	dispatch(toggleFilter());
+	// 	// dispatch(toggleFilter());
+  //   // console.log('filter toggled', filter)
 	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	// }, [filter]);
+	// });
 
 	// function bubbleSort(arr, filter) {
   //   let param;
@@ -41,18 +43,31 @@ export default function TicketList() {
   //   }
 	// 	for (let i = 0; i < arr.length; i++) {
 	// 		for (let j = 0; j < arr.length; j++) {
-	// 			if (arr[j].param > arr[j + 1].param) {
+	// 			if (arr[j].segment[0].param > arr[j + 1].segment[0].param) {
 	// 				let tmp = arr[j].param;
-	// 				arr[j].param = arr[j + 1].param;
-	// 				arr[j + 1].param = tmp;
+	// 				arr[j].segment[0].param = arr[j + 1].segment[0].param;
+	// 				arr[j + 1].segment[0].param = tmp;
 	// 			}
 	// 		}
 	// 	}
 	// 	return arr;
 	// }
 
+  // const filterSorter = (data) => {
+  //   filter === 'cheap'
+  //   ? data.sort(
+	// 		(prev, next) => prev.price - next.price
+	// 	)
+  //   : data.sort(
+	// 		(prev, next) =>
+	// 			prev.segments[0].duration + prev.segments[1].duration -
+	// 			(next.segments[0].duration + next.segments[1].duration)
+  //   )
+  // };
+
 	let elements = tickets.length ? (
 		tickets
+      // .sort((data) => filterSorter(data))
 			.slice(0, visible)
 			// .sort((data) => bubbleSort(data, filter))
 			.map((res) => <Ticket key={uniqid()} data={res} />)

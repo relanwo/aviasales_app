@@ -21,6 +21,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 20px;
+    align-items: center;
 }
 
 .ticket__content.ant-layout-content {
@@ -42,6 +44,7 @@
   /* Primary Colors/Primary 500 */
 
   color: #2196F3;
+  margin: 0 !important;
 }
 
 .description {
@@ -72,4 +75,8 @@
   align-items: center;
 
   color: #4A4A4A;
+}
+
+.logo {
+  height: fit-content;
 }

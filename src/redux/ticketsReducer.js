@@ -16,6 +16,7 @@ export const ticketsReducer = (state = initialState, action) => {
       return {
         ...state,
         tickets: action.data.tickets
+        // tickets: [...state.tickets, action.data.tickets]
       }
     case LOADER_ON:
       return {

@@ -4,8 +4,13 @@ import './filter.scss';
 import { Radio } from 'antd';
 import { connect } from 'react-redux';
 import { toggleFilter } from '../../redux/actions'
+import { useEffect } from 'react';
 
 function Filter(props) {
+
+  useEffect(() => {
+    // dispatch()
+  }, [props.filterState])
 
   return (<Radio.Group defaultValue={props.filterState} buttonStyle="solid" 
   onChange={props.changeFilterState}

@@ -20,13 +20,13 @@ export default function Ticket({ data }) {
   const dateFormater = (value) => intlFormat(new Date(value), { hour: '2-digit', minute: '2-digit' })
   const dateAdding = (date, addition) => add(new Date(date), { minutes: addition })
 
-	const { id, price, segments } = data;
+	const { id, price, carrier, segments } = data;
 
 	return (
 		<Card className="ticket" key={id}>
 			<Header className="ticket__header">
 				<p className="price">{priceFormater(price)}</p>
-				<img className="logo" alt="logo" src="../../imgs/S7.png"></img>
+				<img className="logo" alt="logo" src={`https://pics.avs.io/99/36/${carrier}.png`}></img>
 			</Header>
 			<Content className="ticket__content">
 				<div className='container'>

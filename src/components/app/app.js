@@ -3,6 +3,7 @@ import Sidebar from '../sidebar/sidebar';
 import Filter from '../filter/filter';
 import TicketList from '../ticket-list/ticket-list';
 
+import logo from '../../imgs/logo.png';
 import './app.scss';
 import 'antd/dist/reset.css';
 import { Layout } from 'antd';
@@ -16,7 +17,7 @@ function App() {
 				<img
 					className="header__logo"
 					alt="logo"
-					src='../../imgs/Logo.png'
+					src={logo}
 				></img>
 			</header>
 			<section
