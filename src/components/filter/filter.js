@@ -1,49 +1,31 @@
-/* eslint-disable no-unused-vars */
 import './filter.scss';
 
 import { Radio } from 'antd';
 import { connect } from 'react-redux';
-import { toggleFilter } from '../../redux/actions'
-import { useEffect } from 'react';
+import { toggleFilter } from '../../redux/actions';
 
 function Filter(props) {
+  const { filterState, changeFilterState } = props;
 
-  useEffect(() => {
-    // dispatch()
-  }, [props.filterState])
-
-  return (<Radio.Group defaultValue={props.filterState} buttonStyle="solid" 
-  onChange={props.changeFilterState}
-  // onChange={() => dispatch(changeFilterState())}>
-  >
-    <Radio.Button 
-      value="cheap" 
-    >Самый дешевый</Radio.Button>
-    <Radio.Button 
-      value="fast"
-    >Самый быстрый</Radio.Button>
-  </Radio.Group>)
+  return (
+    <Radio.Group defaultValue={filterState} buttonStyle="solid" onChange={changeFilterState}>
+      <Radio.Button value="cheap">Самый дешевый</Radio.Button>
+      <Radio.Button value="fast">Самый быстрый</Radio.Button>
+    </Radio.Group>
+  );
 }
 
 function mapStateToProps(state) {
-  // console.log('mapStateToProps >', state)
-  // const {filterState} = state
-  const {filterReducer} = state
+  const { filterReducer } = state;
   return {
-    // filterState
-    filterState: filterReducer.filterState
-  }
+    filterState: filterReducer.filterState,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    changeFilterState: () => {
-      // console.log('click')
-
-      // const action = { type: 'TOGGLE_FILTER' }
-      return dispatch(toggleFilter())
-    }
-  }
+    changeFilterState: () => dispatch(toggleFilter()),
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

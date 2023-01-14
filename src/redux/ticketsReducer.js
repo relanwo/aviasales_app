@@ -1,57 +1,53 @@
-import { TICKETS_LOAD, LOADER_ON, LOADER_OFF, CHANGE_VISIBLE, ERROR_ON, ERROR_OFF } from './types'
-// import { TICKETS_LOAD, LOADER_ON, LOADER_OFF, CHANGE_VISIBLE, ERROR_ON, ERROR_OFF, GET_SEARCH_ID } from './types'
+import {
+  TICKETS_LOAD, LOADER_ON, LOADER_OFF, CHANGE_VISIBLE, ERROR_ON, ERROR_OFF,
+} from './types';
 
 const initialState = {
   tickets: [],
   loader: false,
   visible: 5,
-  error: null
-}
-// import { initialState } from './rootReducer';
-
+  error: null,
+};
 
 export const ticketsReducer = (state = initialState, action) => {
-  console.log('ticketsReducer >', action)
+  // console.log('ticketsReducer >', action);
   // console.log('state >>>>>>', state)
-  
-  switch(action.type) {
+
+  switch (action.type) {
     case TICKETS_LOAD:
-      // const tickets = action.data.tickets
       return {
         ...state,
-        // tickets: [...state.tickets, ...action.data]
-        // state.tickets.push(...action.data)
-        // tickets: state.tickets.push(action.data)
-        tickets: action.data
-      }
+        tickets: action.data,
+      };
     case LOADER_ON:
       return {
         ...state,
-        loader: true
-      }
+        loader: true,
+      };
     case LOADER_OFF:
       return {
         ...state,
-        loader: false
-      }
+        loader: false,
+      };
     case CHANGE_VISIBLE:
       return {
         ...state,
-        visible: state.visible <= state.tickets.length 
-          ? state.visible + 5 
-          : state.visible + (state.tickets.length + state.visible)
-      }
+        visible:
+          state.visible <= state.tickets.length
+            ? state.visible + 5
+            : state.visible + (state.tickets.length + state.visible),
+      };
     case ERROR_ON:
       return {
         ...state,
-        error: action.text
-      }
+        error: action.text,
+      };
     case ERROR_OFF:
       return {
         ...state,
-        error: null
-      }
+        error: null,
+      };
     default:
-      return state
+      return state;
   }
-}
+};

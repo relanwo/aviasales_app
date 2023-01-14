@@ -9,12 +9,9 @@
 .ticket.ant-card {
   margin-top: 20px;
   height: 185px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: space-between;
 }
 
 .ticket__header.ant-layout-header {
@@ -22,7 +19,7 @@
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 20px;
-    align-items: center;
+  align-items: center;
 }
 
 .ticket__content.ant-layout-content {
@@ -36,14 +33,8 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 24px;
-  /* identical to box height, or 100% */
 
-  // display: flex;
-  // align-items: center;
-
-  /* Primary Colors/Primary 500 */
-
-  color: #2196F3;
+  color: #2196f3;
   margin: 0 !important;
 }
 
@@ -54,14 +45,13 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 18px;
-  /* identical to box height, or 150% */
 
   display: flex;
   align-items: center;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 
-  color: #A0B0B9;
+  color: #a0b0b9;
 }
 
 .values {
@@ -69,12 +59,11 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
-  /* identical to box height, or 150% */
 
   display: flex;
   align-items: center;
 
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 
 .logo {

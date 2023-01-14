@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-*, :after, :before {
+*,
+:after,
+:before {
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #F3F7FA;
+  background-color: #f3f7fa;
 }
 
 #app {
@@ -21,10 +23,6 @@ body {
   margin: 50px 0 -100px 0;
 }
 
-.header__logo {
-  // margin: 50px;
-}
-
 .ant-layout-header {
   background: none;
 }
@@ -33,49 +31,10 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 170px;
+  max-width: 750px;
+  margin-inline: auto;
 }
 
 .main {
-  // min-width: 500px;
-  // margin: 0 0 20px 20px;
-  width: 67%
+  width: 67%;
 }
-
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
