@@ -1,4 +1,5 @@
 import { TICKETS_LOAD, LOADER_ON, LOADER_OFF, CHANGE_VISIBLE, ERROR_ON, ERROR_OFF } from './types'
+// import { TICKETS_LOAD, LOADER_ON, LOADER_OFF, CHANGE_VISIBLE, ERROR_ON, ERROR_OFF, GET_SEARCH_ID } from './types'
 
 const initialState = {
   tickets: [],
@@ -6,17 +7,22 @@ const initialState = {
   visible: 5,
   error: null
 }
+// import { initialState } from './rootReducer';
+
 
 export const ticketsReducer = (state = initialState, action) => {
   console.log('ticketsReducer >', action)
+  // console.log('state >>>>>>', state)
   
   switch(action.type) {
     case TICKETS_LOAD:
       // const tickets = action.data.tickets
       return {
         ...state,
-        tickets: action.data.tickets
-        // tickets: [...state.tickets, action.data.tickets]
+        // tickets: [...state.tickets, ...action.data]
+        // state.tickets.push(...action.data)
+        // tickets: state.tickets.push(action.data)
+        tickets: action.data
       }
     case LOADER_ON:
       return {
@@ -31,7 +37,9 @@ export const ticketsReducer = (state = initialState, action) => {
     case CHANGE_VISIBLE:
       return {
         ...state,
-        visible: state.visible + 5 
+        visible: state.visible <= state.tickets.length 
+          ? state.visible + 5 
+          : state.visible + (state.tickets.length + state.visible)
       }
     case ERROR_ON:
       return {

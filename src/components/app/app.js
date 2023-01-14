@@ -6,8 +6,8 @@ import TicketList from '../ticket-list/ticket-list';
 import logo from '../../imgs/logo.png';
 import './app.scss';
 import 'antd/dist/reset.css';
-import { Layout } from 'antd';
-const { Header, Sider, Content } = Layout;
+// import { Layout } from 'antd';
+// const { Header, Sider, Content } = Layout;
 
 function App() {
 

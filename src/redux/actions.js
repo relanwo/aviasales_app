@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import {
 	TOGGLE_FILTER,
 	ON_CHECK,
 	ON_CHECK_ALL,
+  GET_SEARCH_ID,
 	TICKETS_LOAD,
 	LOADER_ON,
 	LOADER_OFF,
@@ -53,6 +55,19 @@ export function errorOff() {
 	};
 }
 
+// export function getSearchId(searchId) {
+// 	return {
+// 		type: GET_SEARCH_ID,
+//     searchId
+// 	};
+// }
+export function ticketsLoad(data) {
+	return {
+		type: TICKETS_LOAD,
+    data
+	};
+}
+
 // let searchId;
 
 export const getSearchId = async () => {
@@ -67,40 +82,40 @@ export const getSearchId = async () => {
   return searchId
 };
 
-export const ticketsLoad = () => {
-	// console.log('getSearchId >>>>', getSearchId())
-  // const searchId =  getSearchId();
-	return async (dispatch) => {
-    try {
-      dispatch(loaderOn());
-      const searchId = await getSearchId();
-			// console.log('res >', res)
-			const response = await fetch(
-				`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId}`
-			);
-			console.log('resp >>', response);
-			// if (!response.ok) throw new Error('Failed DATA');
-			let data = await response.json();
-			console.log('data >>', data);
-			// while (data.stop === false) {
-			// 	const response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId}`);
-			// 	console.log(await response.json())
-			// }
-			// if (data === undefined || !data.stop) {}
-      // if (data.stop !== true) {
-			// 	return dispatch(ticketsLoad())
-			// }
-			dispatch({
-				type: TICKETS_LOAD,
-				data,
-			});
-			dispatch(loaderOff());
-		} catch (err) {
-			dispatch(errorOn('Ошибка получения данных'));
-			dispatch(loaderOff());
-		}
-	};
-}
+// export const ticketsLoad = () => {
+// 	// console.log('getSearchId >>>>', getSearchId())
+//   // const searchId =  getSearchId();
+// 	return async (dispatch) => {
+//     try {
+//       dispatch(loaderOn());
+//       const searchId = await getSearchId();
+// 			// console.log('res >', res)
+// 			const response = await fetch(
+// 				`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId}`
+// 			);
+// 			console.log('resp >>', response);
+// 			// if (!response.ok) throw new Error('Failed DATA');
+// 			let data = await response.json();
+// 			console.log('data >>', data);
+// 			// while (data.stop === false) {
+// 			// 	const response = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId}`);
+// 			// 	console.log(await response.json())
+// 			// }
+// 			// if (data === undefined || !data.stop) {}
+//       // if (data.stop !== true) {
+// 			// 	return dispatch(ticketsLoad())
+// 			// }
+// 			dispatch({
+// 				type: TICKETS_LOAD,
+// 				data,
+// 			});
+// 			dispatch(loaderOff());
+// 		} catch (err) {
+// 			dispatch(errorOn('Ошибка получения данных'));
+// 			dispatch(loaderOff());
+// 		}
+// 	};
+// }
 
 export function changeVisible() {
 	return {

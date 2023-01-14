@@ -17,7 +17,6 @@ export const filterReducer = (state = initialState, action) => {
 			return {
 				...state,
 				filterState: state.filterState === 'fast' ? 'cheap' : 'fast',
-        // tickets:
 			};
 		default:
 			return state;

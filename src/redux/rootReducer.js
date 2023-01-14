@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { combineReducers } from "redux";
 import { filterReducer } from "./filterReducer";
 import { sidebarReducer } from "./sidebarReducer";
@@ -124,10 +125,31 @@ import { ticketsReducer } from './ticketsReducer'
 //       return state
 //   }
 // }
+// export const initialState = {
+// 	filterState: 'cheap',
+// 	filteredTickets: [],
+
+// 	checkedList: 'Все',
+// 	checkAll: true,
+// 	values: ['Без пересадок', '1 пересадка', '2 пересадки', '3 пересадки'],
+
+// 	tickets: [],
+// 	loader: false,
+// 	visible: 5,
+// 	error: null,
+// };
 
 export const rootReducer = combineReducers({
   filterReducer,
   sidebarReducer,
   ticketsReducer
 })
+
+// export const rootReducer = configureStore({
+//   reducer: {
+//     filterReducer,
+//     sidebarReducer,
+//     ticketsReducer
+//   }
+// })
 

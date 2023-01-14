@@ -1,3 +1,48 @@
+// /* eslint-disable no-unused-vars */
+// import React from 'react';
+// import ReactDom from 'react-dom/client';
+// import { createStore, applyMiddleware, compose } from 'redux';
+// import thunk from 'redux-thunk';
+// import { rootReducer } from './redux/rootReducer';
+// import { Provider } from 'react-redux';
+// import { composeWithDevTools } from 'redux-devtools-extension';
+// // import store from './redux/reducer'
+// // import { reducer } from './redux/reducer';
+// import { configureStore } from '@reduxjs/toolkit'
+
+// import App from './components/app/app';
+
+// const store = createStore(rootReducer, compose(
+//   applyMiddleware(thunk),
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  
+// ))
+
+// // const store = createStore(rootReducer, composeWithDevTools(
+// //   applyMiddleware(thunk)
+// //   // , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  
+// // ))
+
+// // const store = createStore(rootReducer, composeWithDevTools(
+// //   applyMiddleware(thunk)
+// //   // , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()  
+// // ))
+
+// // const store = configureStore(
+// //   { reducer: rootReducer },
+// //   composeWithDevTools(applyMiddleware(thunk))
+// // )
+
+// const root = ReactDom.createRoot(document.getElementById('app'));
+// root.render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>,
+//   );
+
+
+
+
+
 // import React from 'react';
 // import ReactDom from 'react-dom/client';
 

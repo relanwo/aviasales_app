@@ -27,8 +27,10 @@ function Filter(props) {
 
 function mapStateToProps(state) {
   // console.log('mapStateToProps >', state)
+  // const {filterState} = state
   const {filterReducer} = state
   return {
+    // filterState
     filterState: filterReducer.filterState
   }
 }

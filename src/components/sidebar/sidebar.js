@@ -13,11 +13,15 @@ const Sidebar = (props) => {
 	// console.log('sidebar props >', props); //undefined, потому что надо доставать через useSelector
 
 	const checkAll = useSelector((state) => state.sidebarReducer.checkAll);
-	// console.log('checkAll >>>', checkAll);
 	const checkedList = useSelector((state) => state.sidebarReducer.checkedList)
-	// console.log('checkedList >>>', checkedList);
   const values = useSelector((state) => state.sidebarReducer.values)
-	// console.log('checkedList >>>', checkedList);
+
+  // const checkAll = useSelector((state) => state.checkAll);
+	// const checkedList = useSelector((state) => state.checkedList)
+  // const values = useSelector((store) => {
+  //   // state.values
+  //   console.log('state.values>', store)
+  // })
 
 	const dispatch = useDispatch();
 
