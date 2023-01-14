@@ -2,7 +2,6 @@ import Sidebar from '../sidebar/sidebar';
 import Filter from '../filter/filter';
 import TicketList from '../ticket-list/ticket-list';
 
-// import { logo } from '../../imgs/lodo.png';
 import './app.scss';
 import 'antd/dist/reset.css';
 
