@@ -1,3 +1,5 @@
+/* eslint-disable import/named */
+/* eslint-disable no-unused-vars */
 import './ticket-list.scss';
 import { Button, Alert, Spin } from 'antd';
 import uniqid from 'uniqid';
@@ -5,7 +7,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Ticket from '../ticket/ticket';
 import { changeVisible } from '../../redux/actions';
-import { fetchTicketsLoad } from '../../redux/api-actions';
+import { fetchTicketsLoad, fetchSearchId } from '../../redux/api-actions';
 
 export default function TicketList() {
   const dispatch = useDispatch();
@@ -21,6 +23,7 @@ export default function TicketList() {
   const filterState = useSelector((state) => state.filterReducer.filterState);
 
   useEffect(() => {
+    // dispatch(fetchSearchId());
     dispatch(fetchTicketsLoad());
   }, []);
 
@@ -32,9 +35,6 @@ export default function TicketList() {
   };
 
   const elements = tickets
-    .sort((prev, next) => (filterState === 'cheap'
-      ? prev.price - next.price
-      : next.segments[0].duration + next.segments[1].duration - prev.segments[0].duration + prev.segments[1].duration))
     .filter((item) => {
       if (checkAll) return true;
       let bool;
@@ -44,6 +44,9 @@ export default function TicketList() {
       }
       return bool;
     })
+    .sort((prev, next) => (filterState === 'cheap'
+      ? prev.price - next.price
+      : next.segments[0].duration + next.segments[1].duration - prev.segments[0].duration + prev.segments[1].duration))
     .slice(0, visible)
     .map((res) => <Ticket key={uniqid()} data={res} />);
 

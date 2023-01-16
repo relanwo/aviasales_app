@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
   TICKETS_LOAD, LOADER_ON, LOADER_OFF, CHANGE_VISIBLE, ERROR_ON, ERROR_OFF,
 } from './types';
@@ -11,7 +12,7 @@ const initialState = {
 
 export const ticketsReducer = (state = initialState, action) => {
   // console.log('ticketsReducer >', action);
-  // console.log('state >>>>>>', state)
+  // console.log('state >>>>>>', state);
 
   switch (action.type) {
     case TICKETS_LOAD:

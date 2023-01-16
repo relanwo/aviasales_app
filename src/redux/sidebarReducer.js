@@ -1,7 +1,7 @@
 import { ON_CHECK, ON_CHECK_ALL } from './types';
 
 const initialState = {
-  checkedList: 'Все',
+  checkedList: ['Все', 'Без пересадок', '1 пересадка', '2 пересадки', '3 пересадки'],
   checkAll: true,
   values: ['Без пересадок', '1 пересадка', '2 пересадки', '3 пересадки'],
 };

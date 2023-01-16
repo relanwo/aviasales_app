@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDom from 'react-dom/client';
 import { createStore, applyMiddleware } from 'redux';
@@ -10,7 +11,8 @@ import App from './components/app/app';
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk)),
+  applyMiddleware(thunk),
+  // composeWithDevTools(applyMiddleware(thunk)),
 );
 
 const container = document.getElementById('app');
