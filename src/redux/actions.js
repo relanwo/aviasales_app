@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
 import {
   TOGGLE_FILTER,
   ON_CHECK,
@@ -62,12 +60,12 @@ export function ticketsLoad(data) {
   };
 }
 
-export const getSearchId = async () => {
-  const responseId = await fetch('https://aviasales-test-api.kata.academy/search');
-  const data = await responseId.json();
-  const { searchId } = data;
-  return searchId;
-};
+export function getSearchId(id) {
+  return {
+    type: GET_SEARCH_ID,
+    payload: id,
+  };
+}
 
 export function changeVisible() {
   return {

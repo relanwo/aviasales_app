@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDom from 'react-dom/client';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
+import thunkMiddleware from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { rootReducer } from './redux/rootReducer';
 
@@ -11,8 +10,7 @@ import App from './components/app/app';
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunk),
-  // composeWithDevTools(applyMiddleware(thunk)),
+  composeWithDevTools(applyMiddleware(thunkMiddleware)),
 );
 
 const container = document.getElementById('app');

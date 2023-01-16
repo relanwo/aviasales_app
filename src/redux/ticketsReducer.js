@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import {
   TICKETS_LOAD, LOADER_ON, LOADER_OFF, CHANGE_VISIBLE, ERROR_ON, ERROR_OFF,
 } from './types';

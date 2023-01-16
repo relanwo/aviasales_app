@@ -1,5 +1,3 @@
-/* eslint-disable import/named */
-/* eslint-disable no-unused-vars */
 import './ticket-list.scss';
 import { Button, Alert, Spin } from 'antd';
 import uniqid from 'uniqid';
@@ -7,7 +5,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Ticket from '../ticket/ticket';
 import { changeVisible } from '../../redux/actions';
-import { fetchTicketsLoad, fetchSearchId } from '../../redux/api-actions';
+import { fetchSearchId } from '../../redux/api-actions';
 
 export default function TicketList() {
   const dispatch = useDispatch();
@@ -23,8 +21,7 @@ export default function TicketList() {
   const filterState = useSelector((state) => state.filterReducer.filterState);
 
   useEffect(() => {
-    // dispatch(fetchSearchId());
-    dispatch(fetchTicketsLoad());
+    dispatch(fetchSearchId());
   }, []);
 
   const amountOfStops = {
