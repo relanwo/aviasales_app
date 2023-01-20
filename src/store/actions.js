@@ -1,14 +1,14 @@
 import {
-  TOGGLE_FILTER,
+  CHANGE_VISIBLE,
+  ERROR_OFF,
+  ERROR_ON,
+  GET_SEARCH_ID,
+  LOADER_OFF,
+  LOADER_ON,
   ON_CHECK,
   ON_CHECK_ALL,
-  GET_SEARCH_ID,
   TICKETS_LOAD,
-  LOADER_ON,
-  LOADER_OFF,
-  CHANGE_VISIBLE,
-  ERROR_ON,
-  ERROR_OFF,
+  TOGGLE_FILTER,
 } from './types';
 
 export function toggleFilter() {

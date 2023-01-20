@@ -1,7 +1,6 @@
-import './ticket.scss';
-import { add, intlFormat } from 'date-fns';
-
+import './Ticket.scss';
 import { Card, Layout } from 'antd';
+import { add, intlFormat } from 'date-fns';
 
 const { Header, Content } = Layout;
 

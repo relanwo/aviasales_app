@@ -1,8 +1,9 @@
-import './filter.scss';
+import './Filter.scss';
 
 import { Radio } from 'antd';
 import { connect } from 'react-redux';
-import { toggleFilter } from '../../redux/actions';
+
+import { toggleFilter } from '../../store/actions';
 
 function Filter(props) {
   const { filterState, changeFilterState } = props;

@@ -1,9 +1,8 @@
-import Sidebar from '../sidebar/sidebar';
-import Filter from '../filter/filter';
-import TicketList from '../ticket-list/ticket-list';
-
-import logo from './imgs/logo.png';
-import './app.scss';
+import logo from '../../assets/images/logo.png';
+import Filter from '../Filter/Filter';
+import Sidebar from '../Sidebar/Sidebar';
+import TicketList from '../TicketList/TicketList';
+import './App.scss';
 import 'antd/dist/reset.css';
 
 function App() {

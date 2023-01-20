@@ -1,7 +1,8 @@
-import { useSelector, useDispatch } from 'react-redux';
-import './sidebar.scss';
 import { Checkbox } from 'antd';
-import { onCheck, onCheckAll } from '../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import './Sidebar.scss';
+
+import { onCheck, onCheckAll } from '../../store/actions';
 
 const CheckboxGroup = Checkbox.Group;
 

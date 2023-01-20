@@ -1,11 +1,12 @@
-import './ticket-list.scss';
-import { Button, Alert, Spin } from 'antd';
-import uniqid from 'uniqid';
+import './TicketList.scss';
+import { Alert, Button, Spin } from 'antd';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Ticket from '../ticket/ticket';
-import { changeVisible } from '../../redux/actions';
-import { fetchSearchId } from '../../redux/api-actions';
+import uniqid from 'uniqid';
+
+import { changeVisible } from '../../store/actions';
+import { fetchSearchId } from '../../store/api-actions';
+import Ticket from '../Ticket/Ticket';
 
 export default function TicketList() {
   const dispatch = useDispatch();
@@ -43,7 +44,9 @@ export default function TicketList() {
     })
     .sort((prev, next) => (filterState === 'cheap'
       ? prev.price - next.price
-      : next.segments[0].duration + next.segments[1].duration - prev.segments[0].duration + prev.segments[1].duration))
+      : prev.segments[0].duration
+          + prev.segments[1].duration
+          - (next.segments[0].duration + next.segments[1].duration)))
     .slice(0, visible)
     .map((res) => <Ticket key={uniqid()} data={res} />);
 

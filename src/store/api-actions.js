@@ -1,5 +1,5 @@
 import {
-  getSearchId, ticketsLoad, loaderOn, loaderOff,
+  getSearchId, loaderOff, loaderOn, ticketsLoad,
 } from './actions';
 
 const data = [];

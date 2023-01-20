@@ -23,6 +23,51 @@
     "react/prop-types": 0,
     "no-plusplus": 0,
     "import/prefer-default-export": 0,
-    "default-param-last": 0
+    "default-param-last": 0,
+    "import/order": 
+    [
+        1, 
+        { "groups": [
+          "external", 
+          "builtin", 
+          "internal", 
+          "sibling", 
+          "parent", 
+          "index"
+       ], 
+      "pathGroups": [
+          { 
+            "pattern": "components", 
+            "group": "internal" 
+          }, 
+          { 
+            "pattern": "common", 
+            "group": "internal" 
+          }, 
+          { 
+            "pattern": "routes/ **", 
+            "group": "internal" 
+          }, 
+          { 
+            "pattern": "assets/**", 
+            "group": "internal", 
+            "position": "after" 
+          }
+       ], 
+      "pathGroupsExcludedImportTypes": 
+         ["internal"], 
+         "alphabetize": { 
+            "order": "asc", 
+            "caseInsensitive": true 
+         }
+        } 
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ]
   }
 }

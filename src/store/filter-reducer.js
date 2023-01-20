@@ -5,8 +5,6 @@ const initialState = {
 };
 
 export const filterReducer = (state = initialState, action) => {
-  // console.log('filterReducer >', action)
-
   switch (action.type) {
     case TOGGLE_FILTER:
       return {

@@ -1,5 +1,5 @@
 import {
-  TICKETS_LOAD, LOADER_ON, LOADER_OFF, CHANGE_VISIBLE, ERROR_ON, ERROR_OFF,
+  CHANGE_VISIBLE, ERROR_OFF, ERROR_ON, LOADER_OFF, LOADER_ON, TICKETS_LOAD,
 } from './types';
 
 const initialState = {
@@ -10,9 +10,6 @@ const initialState = {
 };
 
 export const ticketsReducer = (state = initialState, action) => {
-  // console.log('ticketsReducer >', action);
-  // console.log('state >>>>>>', state);
-
   switch (action.type) {
     case TICKETS_LOAD:
       return {

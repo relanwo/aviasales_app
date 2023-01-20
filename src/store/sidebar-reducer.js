@@ -7,8 +7,6 @@ const initialState = {
 };
 
 export const sidebarReducer = (state = initialState, action) => {
-  // console.log('sidebarReducer >', action.e)
-
   switch (action.type) {
     case ON_CHECK:
       return {
